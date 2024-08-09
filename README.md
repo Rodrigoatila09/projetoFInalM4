@@ -27,23 +27,23 @@ REQUISITOS DO PROJETO:
 - Teremos que ter um CRUD para: 
 
 
-* Denúncias: Todos os tipos de denúncias que são computados.
+* Denúncias(complaint): Todos os tipos de denúncias que são computados.
 
 
-* Categoria da denúncia: Qual foi o crime que foi denunciado. Exemplo: Lei Maria Da Penha, Abuso contraa idoso, Abuso contra animais, etc.
+* Categoria da denúncia(category report): Qual foi o crime que foi denunciado. Exemplo: Lei Maria Da Penha, Abuso contraa idoso, Abuso contra animais, etc.
 
 
-* Órgão responsavel pela denuncia: Para quem a denúncia é encaminhada. Exemplo: Polícia Da Mulher, Conselho Tutelar, etc
+* Órgão responsavel (responsible authority): Para quem a denúncia é encaminhada. Exemplo: Polícia Da Mulher, Conselho Tutelar, etc
 
 
-* Evidencias: (Fotos ou videos do crime).
+* Evidencias(Evidences): (Fotos ou videos do crime).
 
 
-* Resolução da denuncia: Status da denúncia, se está pendente ou se já foi resolvida.
+* Resolução da denuncia(Resolution): Status da denúncia, se está pendente ou se já foi resolvida.
 
 
-* Local do crime: Localização de onde o crime aconteceu.
+* Local do crime(Crime scene): Localização de onde o crime aconteceu.
 
 
-* Delator: Pequenos dados de quem faz a denúncia. Ex: Telefone, nome, etc.
+* Delator(Whistleblower): Pequenos dados de quem faz a denúncia. Ex: Telefone, nome, etc.
 
