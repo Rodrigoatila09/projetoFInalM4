@@ -1,47 +1,88 @@
-
 import { Evidence } from "../models/Evidence.model.js";
 
 export const createEvidence = async (req, res) => {
   try {
-    const { resolutionId, responsibleAuthorityId,  evidenceContent,resolutionDate, resolutionDetails } = req.body;
-    const newEvidence = await Evidence.create({ resolutionId, responsibleAuthorityId,  evidenceContent,resolutionDate, resolutionDetails  });
-    return res.status(201).json({ newEvidence });
+    const {
+      resolutionId,
+      responsibleAuthorityId,
+      evidenceContent,
+      resolutionDate,
+      resolutionDetails,
+    } = req.body;
+
+    const newEvidence = await Evidence.create({
+      resolutionId,
+      responsibleAuthorityId,
+      evidenceContent,
+      resolutionDate,
+      resolutionDetails,
+    });
+
+    return res.status(201).json({ evidence: newEvidence });
   } catch (error) {
     return res.status(400).json({ messageError: error.message });
   }
 };
 
 export const getEvidence = async (req, res) => {
-    try {
-        const Evidence = await Evidence.findAll()
-        return res.json({ Evidence })
-    }catch(error){
-        return res.status(400).json({ messageError: error.message })
-    }
-}
+  try {
+    const evidence = await Evidence.findAll();
+    return res.json({ evidence });
+  } catch (error) {
+    return res.status(400).json({ messageError: error.message });
+  }
+};
 
 export const updateEvidence = async (req, res) => {
-    try{
-        const { id } = req.params
-        const { responsibleAuthorityId,  evidenceContent,resolutionDate, resolutionDetails  } = req.body
-        const Evidence = await Evidence.findByPk(id)
-        if(!Evidence){
-            return res.status(404).json({ message: 'Evidencia não encontrada'})
-        }
+  try {
+    const { id } = req.params;
+    const {
+      evidenceContent,
+      resolutionDate,
+      resolutionDetails,
+    } = req.body;
 
-        const [updated] = await Evidence.update({ responsibleAuthorityId,  evidenceContent,resolutionDate, resolutionDetails  }, { where: { id } })
-        
-        if (updated){
-            const updatedEvidence = await Evidence.findByPk(id)
-            return res.status(200).json({ message: "Evidencia atualizada com sucesso", Evidence: updatedEvidence })
-        }
-        
-        return res.status(400).json({ message: "Não foi possível atualizar a Evidencia" })
+    const evidence = await Evidence.findByPk(id);
 
-    }catch (error) {
-        console.error(error)
-        return res.status(400).json({ messageError: "Não foi possível atualizr a Evidencia" })
+    if (!evidence) {
+      return res.status(404).json({ message: "Evidencia não encontrada" });
     }
 
-    
+    const [updated] = await Evidence.update(
+      {
+        responsibleAuthorityId,
+        evidenceContent,
+        resolutionDate,
+        resolutionDetails,
+      },
+      { where: { id } }
+    );
+
+    if (updated) {
+      const updatedEvidence = await Evidence.findByPk(id);
+
+      return res
+        .status(200)
+        .json({
+          message: "Evidencia atualizada com sucesso",
+          evidence: updatedEvidence,
+        });
+    }
+
+    return res
+      .status(400)
+      .json({ message: "Não foi possível atualizar a Evidencia" });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(400)
+      .json({ messageError: "Não foi possível atualizr a Evidencia" });
+  }
+};
+
+export const deleteEvidence = async (req, res) => {
+  const { id } = req.params;
+  await Evidence.destroy({ where: { id } });
+
+  return res.json({ message: "Evidencia deletada com sucesso" });
 }
