@@ -5,6 +5,7 @@ export const database = new Sequelize("postgresql://postgres.ddleqszawxexidqdwxf
     protocol: 'postgres',
     logging: false,
 });
+ 
 
 
 database.authenticate()
