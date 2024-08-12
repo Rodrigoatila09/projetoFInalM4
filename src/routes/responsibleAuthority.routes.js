@@ -3,10 +3,10 @@ import { createResponsibleAuthority, deleteResponsibleAuthority, getResponsibleA
 
 const responsibleAuthorityRouter = Router();
 
-responsibleAuthorityRouter.post('/resposibleAuthority', createResponsibleAuthority);
-responsibleAuthorityRouter.get('/resposibleAuthority', getResponsibleAuthority);
-responsibleAuthorityRouter.put('/resposibleAuthority/:id', updateResponsibleAuthority);
-responsibleAuthorityRouter.delete('/resposibleAuthority/:id', deleteResponsibleAuthority);
+responsibleAuthorityRouter.post('/responsibleAuthority', createResponsibleAuthority);
+responsibleAuthorityRouter.get('/responsibleAuthority', getResponsibleAuthority);
+responsibleAuthorityRouter.put('/responsibleAuthority/:id', updateResponsibleAuthority);
+responsibleAuthorityRouter.delete('/responsibleAuthority/:id', deleteResponsibleAuthority);
 
 
 
