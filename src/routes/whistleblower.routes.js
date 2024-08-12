@@ -1,11 +1,12 @@
 import { Router } from "express";
-import { createResolution, getResolutions, updateResolution, deleteResolution } from "../controllers/resolution.controller.js";
+import { createWhistleblower, getWhistleblower, updateWhistleblower, deleteWhistleblower } from "../controllers/whistleblower.controller.js";
 
-const resolutionRouter = Router();
+const whistleblowerRouter = Router();
 
-resolutionRouter.post('/resolution', createResolution);
-resolutionRouter.get('/resolutions', getResolutions);
-resolutionRouter.put('/resolution/:id', updateResolution);
-resolutionRouter.delete('/resolution/:id', deleteResolution);
+whistleblowerRouter.post('/whistleblower', createWhistleblower);
+whistleblowerRouter.get('/whistleblower', getWhistleblower);
+whistleblowerRouter.put('/whistleblower/:id', updateWhistleblower);
+whistleblowerRouter.delete('/whistleblower/:id', deleteWhistleblower);
 
-export { resolutionRouter };
+
+export { whistleblowerRouter };
