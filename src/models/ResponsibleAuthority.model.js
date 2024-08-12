@@ -8,15 +8,15 @@ export const ResponsibleAuthority = database.define("ResponsibleAuthority", {
     defaultValue: DataTypes.UUIDV4,
   },
   nameAuthority: {
-    type: DataTypes.VARCHAR(255),
+    type: DataTypes.STRING(255),
     allowNull: true,
   },
   typeAuthority: {
-    type: DataTypes.VARCHAR(255),
+    type: DataTypes.STRING(255),
     allowNull: true,
   },
   activity: {
-    type: DataTypes.VARCHAR(255),
+    type: DataTypes.STRING(255),
     allowNull: true,
   },
   adress: {
@@ -28,7 +28,7 @@ export const ResponsibleAuthority = database.define("ResponsibleAuthority", {
     allowNull: true,
   },
   phone: {
-    type: DataTypes.INTEGER(13),
+    type: DataTypes.TEXT(15),
     allowNull: true,
   },
 });
