@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { database } from "../database/connection.db.js";
+import { ResponsibleAuthority } from "../models/ResponsibleAuthority.model.js"
 
 export const Resolution = database.define("Resolution", {
   id: {
@@ -7,13 +8,13 @@ export const Resolution = database.define("Resolution", {
     primaryKey: true,
     defaultValue: DataTypes.UUIDV4,
   },
-  resolutionId: {
-    type: DataTypes.UUID,
-    allowNull: true,
-  },
   responsibleAuthorityId: {
     type: DataTypes.UUID,
     allowNull: true,
+    references: {
+      model: ResponsibleAuthority,
+      key:'id',
+    }
   },
   evidenceContent: {
     type: DataTypes.BLOB,
@@ -27,10 +28,15 @@ export const Resolution = database.define("Resolution", {
     type: DataTypes.TEXT,
     allowNull: false,
   },
+  status: {
+    type: DataTypes.ENUM('Pending', 'Resolved', 'Closed'),
+    defaultValue: 'Pending',
+    allowNull: false,
+  },
 });
 
 database
-  .sync()
+  .sync({force:true})
   .then(() => {
     console.log("Resolution table synchronized successfully.");
   })

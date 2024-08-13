@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import { database } from './database/connection.db.js';
 
 
-export const Message = database.define('Message',
+export const Complaint = database.define('Complaint',
     {
       id: {
           type: DataTypes.UUID,

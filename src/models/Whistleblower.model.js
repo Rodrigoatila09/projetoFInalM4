@@ -19,7 +19,7 @@ export const Whistleblower = database.define("Whistleblower", {
     type: DataTypes.STRING(20),
     allowNull: true,
   },
-  is_anonymous: {
+  isAnonymous: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
