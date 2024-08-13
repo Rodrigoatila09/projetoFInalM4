@@ -2,12 +2,12 @@ import { Whistleblower } from "../models/Whistleblower.model.js";
 
 export const createWhistleblower = async (req, res) => {
   try {
-    const { name, email, phone, is_anonymous } = req.body;
+    const { name, email, phone, isAnonymous } = req.body;
     const newWhistleblower = await Whistleblower.create({
       name,
       email,
       phone,
-      is_anonymous,
+      isAnonymous,
     });
     return res.status(201).json({ newWhistleblower });
   } catch (error) {
@@ -17,35 +17,39 @@ export const createWhistleblower = async (req, res) => {
 
 export const getWhistleblower = async (req, res) => {
   try {
-    const whistleblower = await Whistleblower.findAll();
-    return res.json({ whistleblower });
+    const whistleblowers = await Whistleblower.findAll();
+
+    if (whistleblowers.length === 0) {
+      return res.status(404).json({ message: "Nenhum delator encontrado" });
+    }
+
+    return res.status(200).json({ whistleblowers });
   } catch (error) {
-    return res.status(400).json({ messageError: error.message });
+    return res.status(400).json({ messageError: "Erro ao buscar delatores: " + error.message });
   }
 };
 
 export const updateWhistleblower = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, email, phone, is_anonymous } = req.body;
+    const { name, email, phone, isAnonymous } = req.body;
     const whistleblower = await Whistleblower.findByPk(id);
+
     if (!whistleblower) {
       return res.status(404).json({ message: "Delator não encontrado" });
     }
 
     const [updated] = await Whistleblower.update(
-      { name, email, phone, is_anonymous },
+      { name, email, phone, isAnonymous },
       { where: { id } }
     );
 
     if (updated) {
       const updatedWhistleblower = await Whistleblower.findByPk(id);
-      return res
-        .status(200)
-        .json({
-          message: "Delator atualizado com sucesso",
-          whistleblower: updatedWhistleblower,
-        });
+      return res.status(200).json({
+        message: "Delator atualizado com sucesso",
+        whistleblower: updatedWhistleblower,
+      });
     }
 
     return res
@@ -59,10 +63,19 @@ export const updateWhistleblower = async (req, res) => {
   }
 };
 
-
 export const deleteWhistleblower = async (req, res) => {
+  try {
     const { id } = req.params;
-    await Whistleblower.destroy({ where: { id } });
+    const deleted = await Whistleblower.destroy({ where: { id } });
 
-    return res.json({ message: "Delator deletado com sucesso" });
-}
+    if (deleted) {
+      return res.status(200).json({ message: "Delator deletado com sucesso" });
+    }
+
+    return res.status(404).json({ message: "Delator não encontrado" });
+  } catch (error) {
+    return res
+      .status(400)
+      .json({ messageError: "Erro ao deletar delator: " + error.message });
+  }
+};

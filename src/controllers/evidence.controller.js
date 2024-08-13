@@ -37,6 +37,8 @@ export const updateEvidence = async (req, res) => {
   try {
     const { id } = req.params;
     const {
+      resolutionId,
+      responsibleAuthorityId,
       evidenceContent,
       resolutionDate,
       resolutionDetails,
@@ -45,11 +47,12 @@ export const updateEvidence = async (req, res) => {
     const evidence = await Evidence.findByPk(id);
 
     if (!evidence) {
-      return res.status(404).json({ message: "Evidencia não encontrada" });
+      return res.status(404).json({ message: "Evidência não encontrada" });
     }
 
     const [updated] = await Evidence.update(
       {
+        resolutionId,
         responsibleAuthorityId,
         evidenceContent,
         resolutionDate,
@@ -64,25 +67,34 @@ export const updateEvidence = async (req, res) => {
       return res
         .status(200)
         .json({
-          message: "Evidencia atualizada com sucesso",
+          message: "Evidência atualizada com sucesso",
           evidence: updatedEvidence,
         });
     }
 
     return res
       .status(400)
-      .json({ message: "Não foi possível atualizar a Evidencia" });
+      .json({ message: "Não foi possível atualizar a evidência" });
   } catch (error) {
     console.error(error);
     return res
       .status(400)
-      .json({ messageError: "Não foi possível atualizr a Evidencia" });
+      .json({ messageError: "Não foi possível atualizar a evidência" });
   }
 };
 
 export const deleteEvidence = async (req, res) => {
-  const { id } = req.params;
-  await Evidence.destroy({ where: { id } });
+  try {
+    const { id } = req.params;
+    const deleted = await Evidence.destroy({ where: { id } });
 
-  return res.json({ message: "Evidencia deletada com sucesso" });
-}
+    if (deleted) {
+      return res.json({ message: "Evidência deletada com sucesso" });
+    }
+
+    return res.status(404).json({ message: "Evidência não encontrada" });
+  } catch (error) {
+    console.error(error);
+    return res.status(400).json({ messageError: "Não foi possível deletar a evidência" });
+  }
+};
