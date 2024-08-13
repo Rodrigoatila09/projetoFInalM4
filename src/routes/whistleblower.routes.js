@@ -9,6 +9,4 @@ whistleblowerRouter.put('/whistleblower/:id', updateWhistleblower);
 whistleblowerRouter.delete('/whistleblower/:id', deleteWhistleblower);
 
 
-
-
-export { whistleblowerRouter }
+export { whistleblowerRouter };
