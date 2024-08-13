@@ -2,7 +2,7 @@ import express from "express"
 import { whistleblowerRouter } from "./routes/whistleblower.routes.js"
 import { evidenceRouter } from "./routes/evidence.routes.js"
 import { responsibleAuthorityRouter } from "./routes/responsibleAuthority.routes.js"
-
+import { crimeSceneRouter } from "./routes/crimeScene.routes.js"
 
 
 const app = express()
@@ -17,6 +17,7 @@ app.use(evidenceRouter)
 
 app.use(responsibleAuthorityRouter)
 
+app.use(crimeSceneRouter)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
