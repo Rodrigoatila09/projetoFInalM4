@@ -3,10 +3,10 @@ import { createEvidence, deleteEvidence, getEvidence, updateEvidence } from "../
 
 const evidenceRouter = Router();
 
-evidenceRouter.post('/evidence', createEvidence);
-evidenceRouter.get('/evidence', getEvidence);
-evidenceRouter.put('/evidence/:id', updateEvidence);
-evidenceRouter.delete('/evidence/:id', deleteEvidence);
+evidenceRouter.post('/evidencia', createEvidence);
+evidenceRouter.get('/evidencia', getEvidence);
+evidenceRouter.put('/evidencia/:id', updateEvidence);
+evidenceRouter.delete('/evidencia/:id', deleteEvidence);
 
 
 

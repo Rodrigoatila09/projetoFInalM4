@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { createCrimeScene, getCrimeScene, updateCrimeScene, deleteCrimeScene } from "./controllers/crimeScene.controller.js";
+import { createCrimeScene, getCrimeScene, updateCrimeScene, deleteCrimeScene } from "../controllers/crimeScene.controller.js";
 
 const crimeSceneRouter = Router();
 
-crimeSceneRouter.post('/crimeScene', createCrimeScene);
-crimeSceneRouter.get('/crimeScene', getCrimeScene);
-crimeSceneRouter.put('/crimeScene/:id', updateCrimeScene);
-crimeSceneRouter.delete('/crimeScene/:id', deleteCrimeScene);
+crimeSceneRouter.post('/cena-crime', createCrimeScene);
+crimeSceneRouter.get('/cena-crime', getCrimeScene);
+crimeSceneRouter.put('/cena-crime/:id', updateCrimeScene);
+crimeSceneRouter.delete('/cena-crime/:id', deleteCrimeScene);
 
 
 

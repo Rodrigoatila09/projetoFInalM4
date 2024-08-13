@@ -3,9 +3,9 @@ import { createResolution, getResolutions, updateResolution, deleteResolution } 
 
 const resolutionRouter = Router();
 
-resolutionRouter.post('/resolution', createResolution);
-resolutionRouter.get('/resolutions', getResolutions);
-resolutionRouter.put('/resolution/:id', updateResolution);
-resolutionRouter.delete('/resolution/:id', deleteResolution);
+resolutionRouter.post('/resolucao', createResolution);
+resolutionRouter.get('/resolucao', getResolutions);
+resolutionRouter.put('/resolucao/:id', updateResolution);
+resolutionRouter.delete('/resolucao/:id', deleteResolution);
 
 export { resolutionRouter };
