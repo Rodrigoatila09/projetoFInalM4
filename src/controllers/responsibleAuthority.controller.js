@@ -88,3 +88,5 @@ export const deleteResponsibleAuthority = async (req, res) => {
 
   return res.json({ message: "Autoridade responsável deletada com sucesso" });
 };
+
+

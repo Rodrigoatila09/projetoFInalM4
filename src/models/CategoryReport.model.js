@@ -15,7 +15,7 @@ export const CategoryReport = database.define(
       allowNull: false,
     },
     description: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: true, 
     },
   }

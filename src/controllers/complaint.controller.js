@@ -9,11 +9,11 @@ import { CrimeScene } from "../models/CrimeScene.model.js";
 export const createComplaint = async (req,res) =>{
     try {
         const {
-        title, description, whistleBlowerID, responsibleAuthorityID, evidenceID, resolutionID, categoryReportID,crimeSceneID
+         description, whistleBlowerID, responsibleAuthorityID, evidenceID, resolutionID, categoryReportID,crimeSceneID
         } = req.body;
     
         const newComplaint = await Complaint.create({
-            title, description, whistleBlowerID,  responsibleAuthorityID, evidenceID, resolutionID, categoryReportID, crimeSceneID });
+            description, whistleBlowerID,  responsibleAuthorityID, evidenceID, resolutionID, categoryReportID, crimeSceneID });
 
     return res.status(201).json({ complaint : newComplaint });
     } catch (error) {
@@ -25,14 +25,14 @@ export const createComplaint = async (req,res) =>{
 export const updateComplaint = async (req,res) =>{
     try {
         const {id} = req.params;
-        const{title, description, whistleBlowerID, responsibleAuthorityID, evidenceID, resolutionID, categoryReportID, crimeSceneID} = req.body;
+        const{description, whistleBlowerID, responsibleAuthorityID, evidenceID, resolutionID, categoryReportID, crimeSceneID} = req.body;
 
         const complaint = await Complaint.findByPk(id);
         if(!complaint){
             return res.status(404).json({message:"Nenhuma denúncia foi encontrada"})
         }
         const [updated] = await Complaint.update(
-            {title, description, whistleBlowerID, responsibleAuthorityID, evidenceID, resolutionID, categoryReportID, crimeSceneID},
+            { description, whistleBlowerID, responsibleAuthorityID, evidenceID, resolutionID, categoryReportID, crimeSceneID},
             {where: {id}}
         );
 
@@ -58,7 +58,7 @@ export const deleteComplaint = async(req,res) => {
         }
        
     }catch(error){
-        return res.status(200).json({message:error.message})
+        return res.status(400).json({message:error.message})
     }
   
 }
@@ -82,7 +82,7 @@ export const getComplaints = async (req, res) => {
                 },
                 {
                     model: CrimeScene,
-                    attributes: ['location']
+                    attributes: ['description','location']
                 },
                 {
                     model: CategoryReport,
@@ -92,7 +92,7 @@ export const getComplaints = async (req, res) => {
 
                 {
                     model: Resolution,
-                    attributes:['resolutionDetails']
+                    attributes:['resolutionDetails','status']
 
                 }
              

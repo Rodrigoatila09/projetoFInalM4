@@ -12,6 +12,8 @@ const port = 4000
 
 app.use(express.json())
 
+app.use(responsibleAuthorityRouter)
+
 app.use(complaimantRouter)
 
 app.use(whistleblowerRouter)

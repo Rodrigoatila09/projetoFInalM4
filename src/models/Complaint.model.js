@@ -94,11 +94,11 @@ import { CrimeScene } from './CrimeScene.model.js';
 
 
   Complaint.belongsTo(Resolution,{foreignKey: 'resolutionID'});
-  Resolution.belongsTo(Complaint,{foreignKey: 'resolutionID'});
+  Resolution.hasMany(Complaint,{foreignKey: 'resolutionID'});
 
   
   Complaint.belongsTo(CrimeScene,{foreignKey: 'crimeSceneID'});
-  CrimeScene.belongsTo(Complaint,{foreignKey: 'crimeSceneID'});
+  CrimeScene.hasMany(Complaint,{foreignKey: 'crimeSceneID'});
 
   Complaint.belongsTo(CategoryReport,{foreignKey: 'categoryReportID'});
   CategoryReport.belongsTo(Complaint,{foreignKey: 'categoryReportID'});
