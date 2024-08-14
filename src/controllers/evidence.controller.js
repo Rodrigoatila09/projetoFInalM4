@@ -18,6 +18,7 @@ export const createEvidence = async (req, res) => {
       resolutionDetails,
     });
 
+    
     return res.status(201).json({ evidence: newEvidence });
   } catch (error) {
     return res.status(400).json({ messageError: error.message });

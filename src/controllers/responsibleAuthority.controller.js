@@ -20,6 +20,7 @@ export const createResponsibleAuthority = async (req, res) => {
         phone
     });
 
+
     return res.status(201).json({ responsibleAuthority: newResposibleAuthority });
   } catch (error) {
     return res.status(400).json({ messageError: error.message });

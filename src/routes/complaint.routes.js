@@ -1,12 +1,16 @@
-// import {  } from "../controllers/complaint.controller.js";
 
 import { Router } from "express";
-import { createComplaint} from "../controllers/complaint.controller.js";
+import { createComplaint, getComplaints, deleteComplaint, updateComplaint} from "../controllers/complaint.controller.js";
 
 const complaimantRouter = Router()
 
-complaimantRouter.post("/complaint", createComplaint)
-// complaimantRouter.p
+complaimantRouter.post("/complaint", createComplaint);
+complaimantRouter.get("/complaints", getComplaints);
+complaimantRouter.delete("/complaint/:id", deleteComplaint);
+complaimantRouter.put('/complainte',updateComplaint)
 
 
 export{complaimantRouter}
+
+
+

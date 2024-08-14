@@ -11,3 +11,4 @@ responsibleAuthorityRouter.delete('/responsibleAuthority/:id', deleteResponsible
 
 
 export { responsibleAuthorityRouter }
+

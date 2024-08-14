@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createCrimeScene, getCrimeScene, updateCrimeScene, deleteCrimeScene } from "./controllers/crimeScene.controller.js";
+import { createCrimeScene, getCrimeScene, updateCrimeScene, deleteCrimeScene } from "../controllers/crimeScene.controller.js";
 
 const crimeSceneRouter = Router();
 

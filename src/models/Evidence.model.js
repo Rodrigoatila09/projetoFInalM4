@@ -13,7 +13,7 @@ export const Evidence = database.define("Evidence", {
   },
   responsibleAuthorityId: {
     type: DataTypes.UUID,
-    allowNull: true,
+    allowNull: true
   },
   evidenceContent: {
     type: DataTypes.BLOB,
@@ -24,9 +24,9 @@ export const Evidence = database.define("Evidence", {
     allowNull: true,
   },
   resolutionDetails: {
-    type: DataTypes.TEXT(20),
+    type: DataTypes.STRING(200),
     allowNull: true,
-  },
+  }
 });
 
 database
