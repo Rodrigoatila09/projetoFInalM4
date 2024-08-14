@@ -7,9 +7,7 @@ export const createCrimeScene = async (req, res) => {
       description,
       dateOfCrime,
       whistleblowerId,
-      responsibleAuthorityId,
-      evidence,
-      resolutionId
+      responsibleAuthorityId
     } = req.body;
 
     const newCrimeScene = await CrimeScene.create({
@@ -17,9 +15,7 @@ export const createCrimeScene = async (req, res) => {
         description,
         dateOfCrime,
         whistleblowerId,
-        responsibleAuthorityId,
-        evidence,
-        resolutionId
+        responsibleAuthorityId
     });
 
     return res.status(201).json({ crimeScene: newCrimeScene });
@@ -45,9 +41,7 @@ export const updateCrimeScene = async (req, res) => {
         description,
         dateOfCrime,
         whistleblowerId,
-        responsibleAuthorityId,
-        evidence,
-        resolutionId
+        responsibleAuthorityId
     } = req.body;
 
     const crimeScene = await CrimeScene.findByPk(id);
@@ -62,9 +56,7 @@ export const updateCrimeScene = async (req, res) => {
         description,
         dateOfCrime,
         whistleblowerId,
-        responsibleAuthorityId,
-        evidence,
-        resolutionId
+        responsibleAuthorityId
       },
       { where: { id } }
     );
@@ -92,8 +84,17 @@ export const updateCrimeScene = async (req, res) => {
 };
 
 export const deleteCrimeScene = async (req, res) => {
-  const { id } = req.params;
-  await CrimeScene.destroy({ where: { id } });
+  try {
+    const { id } = req.params;
+    const crimeScene = await CrimeScene.findByPk(id);
 
-  return res.json({ message: "Cena do crime deletada com sucesso" });
+    if (!crimeScene) {
+      return res.status(404).json({ message: "Cena do crime não encontrada" });
+    }
+
+    await CrimeScene.destroy({ where: { id } });
+    return res.json({ message: "Cena do crime deletada com sucesso" });
+  } catch (error) {
+    return res.status(400).json({ messageError: error.message });
+  }
 }

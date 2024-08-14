@@ -9,8 +9,8 @@ import {
 
 export const categoryReportRouter = express.Router();
 
-categoryReportRouter.post('/categoryReports', createCategoryReport);
-categoryReportRouter.get('/categoryReports', getAllCategoryReports);
-categoryReportRouter.get('/categoryReports/:id', getCategoryReportById);
-categoryReportRouter.put('/categoryReports/:id', updateCategoryReport);
-categoryReportRouter.delete('/categoryReports/:id', deleteCategoryReport);
+categoryReportRouter.post('/categoria', createCategoryReport);
+categoryReportRouter.get('/categoria', getAllCategoryReports);
+categoryReportRouter.get('/categoria/:id', getCategoryReportById);
+categoryReportRouter.put('/categoria/:id', updateCategoryReport);
+categoryReportRouter.delete('/categoria/:id', deleteCategoryReport);

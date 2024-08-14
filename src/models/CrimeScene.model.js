@@ -27,20 +27,10 @@ export const CrimeScene = database.define("CrimeScene", {
       type: DataTypes.UUID,
       allowNull: true,
     },
-    evidence: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-    },
-    resolutionId: {
-      type: DataTypes.ENUM('Under Investigation', 'Solved', 'Closed'),
-      allowNull: false,
-      defaultValue: 'Under Investigation',
-    },
   });
 
 database
-  .sync()
+  .sync({force:true})
   .then(() => {
     console.log("Resolution table synchronized successfully.");
   })

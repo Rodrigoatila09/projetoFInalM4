@@ -3,10 +3,10 @@ import { createWhistleblower, getWhistleblower, updateWhistleblower, deleteWhist
 
 const whistleblowerRouter = Router();
 
-whistleblowerRouter.post('/whistleblower', createWhistleblower);
-whistleblowerRouter.get('/whistleblower', getWhistleblower);
-whistleblowerRouter.put('/whistleblower/:id', updateWhistleblower);
-whistleblowerRouter.delete('/whistleblower/:id', deleteWhistleblower);
+whistleblowerRouter.post('/delator', createWhistleblower);
+whistleblowerRouter.get('/delator', getWhistleblower);
+whistleblowerRouter.put('/delator/:id', updateWhistleblower);
+whistleblowerRouter.delete('/delator/:id', deleteWhistleblower);
 
 
 export { whistleblowerRouter };

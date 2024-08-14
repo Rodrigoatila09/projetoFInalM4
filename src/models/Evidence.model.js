@@ -24,7 +24,7 @@ export const Evidence = database.define("Evidence", {
     allowNull: true,
   },
   resolutionDetails: {
-    type: DataTypes.STRING(200),
+    type: DataTypes.TEXT,
     allowNull: true,
   }
 });
