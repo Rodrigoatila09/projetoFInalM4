@@ -2,15 +2,15 @@
 import { Router } from "express";
 import { createComplaint, getComplaints, deleteComplaint, updateComplaint} from "../controllers/complaint.controller.js";
 
-const complaimantRouter = Router()
+const complaintRouter = Router()
 
-complaimantRouter.post("/complaint", createComplaint);
-complaimantRouter.get("/complaints", getComplaints);
-complaimantRouter.delete("/complaint/:id", deleteComplaint);
-complaimantRouter.put('/complainte',updateComplaint)
+complaintRouter.post("/denuncia", createComplaint);
+complaintRouter.get("/denuncia", getComplaints);
+complaintRouter.delete("/denuncia/:id", deleteComplaint);
+complaintRouter.put('/denuncia',updateComplaint)
 
 
-export{complaimantRouter}
+export{complaintRouter}
 
 
 
