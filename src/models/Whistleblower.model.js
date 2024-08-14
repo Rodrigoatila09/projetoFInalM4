@@ -25,11 +25,4 @@ export const Whistleblower = database.define("Whistleblower", {
   },
 });
 
-database
-  .sync()
-  .then(() => {
-    console.log("Database synchronized successfully.");
-  })
-  .catch((err) => {
-    console.error("Error synchronizing the database:", err);
-  });
+

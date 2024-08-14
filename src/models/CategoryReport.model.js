@@ -20,3 +20,4 @@ export const CategoryReport = database.define(
     },
   }
 );
+

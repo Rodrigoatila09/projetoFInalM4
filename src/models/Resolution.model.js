@@ -35,11 +35,4 @@ export const Resolution = database.define("Resolution", {
   },
 });
 
-database
-  .sync({force:true})
-  .then(() => {
-    console.log("Resolution table synchronized successfully.");
-  })
-  .catch((err) => {
-    console.error("Error synchronizing the Resolution table:", err);
-  });
+
