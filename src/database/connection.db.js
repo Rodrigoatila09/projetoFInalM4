@@ -7,12 +7,16 @@ export const database = new Sequelize("postgresql://postgres.ddleqszawxexidqdwxf
 });
  
 
+export const connection = async () => {
+  try{
+    await database.authenticate()
+    await database.sync({ logging:false })
+    return console.log('Connection has been established successfully.')
+  }catch (error) {
+    console.error('Unable to connect to the database:', err)
+  }
+}
 
-database.authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
+
+
 
