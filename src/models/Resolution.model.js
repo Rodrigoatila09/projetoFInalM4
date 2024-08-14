@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { database } from "../database/connection.db.js";
-import { ResponsibleAuthority } from "../models/ResponsibleAuthority.model.js"
+import { ResponsibleAuthority } from "./ResponsibleAuthority.model.js"
 
 export const Resolution = database.define("Resolution", {
   id: {
@@ -13,8 +13,8 @@ export const Resolution = database.define("Resolution", {
     allowNull: true,
     references: {
       model: ResponsibleAuthority,
-      key:'id',
-    }
+      key: "id",
+    },
   },
   evidenceContent: {
     type: DataTypes.BLOB,
@@ -29,10 +29,8 @@ export const Resolution = database.define("Resolution", {
     allowNull: false,
   },
   status: {
-    type: DataTypes.ENUM('Pending', 'Resolved', 'Closed'),
-    defaultValue: 'Pending',
+    type: DataTypes.ENUM("Pendente", "Em processo", "Encerrado"),
+    defaultValue: "Pendente",
     allowNull: false,
   },
 });
-
-

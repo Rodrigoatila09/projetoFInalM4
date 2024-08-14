@@ -24,5 +24,3 @@ export const Whistleblower = database.define("Whistleblower", {
     defaultValue: false,
   },
 });
-
-

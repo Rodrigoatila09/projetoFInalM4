@@ -27,6 +27,7 @@ export const Complaint = database.define("Complaint", {
       key: "id",
     },
   },
+
   responsibleAuthorityID: {
     type: DataTypes.UUID,
     allowNull: true,
@@ -35,6 +36,7 @@ export const Complaint = database.define("Complaint", {
       key: "id",
     },
   },
+
   evidenceID: {
     type: DataTypes.UUID,
     allowNull: true,
@@ -51,53 +53,23 @@ export const Complaint = database.define("Complaint", {
       model: Resolution,
       key: "id",
     },
-    categoryReportID:{
-      type: DataTypes.UUID,
-      allowNull:true,
-      references:{
-        model: CategoryReport,
-        key:'id'
-      }
-    
+  },
+
+  categoryReportID: {
+    type: DataTypes.UUID,
+    allowNull: true,
+    references: {
+      model: CategoryReport,
+      key: "id",
     },
-    crimeSceneID:{
-      type: DataTypes.UUID,
-      allowNull: true,
-      references:{
-        model:CrimeScene,
-        key:'id'
-      }
+  },
 
-    }
-
-
-  }
+  crimeSceneID: {
+    type: DataTypes.UUID,
+    allowNull: true,
+    references: {
+      model: CrimeScene,
+      key: "id",
+    },
+  },
 });
-
-
-
-  Complaint.belongsTo(Whistleblower, { foreignKey: 'whistleBlowerID' });
-  Whistleblower.hasMany(Complaint, { foreignKey: 'whistleBlowerID' });
-
-  Complaint.belongsTo(ResponsibleAuthority,{foreignKey:'responsibleAuthorityID'});
-  ResponsibleAuthority.hasMany(Complaint, { foreignKey: 'responsibleAuthorityID' });
-
-  Complaint.belongsTo(Evidence,{foreignKey: 'evidenceID'});
-  Evidence.hasMany(Complaint,{foreignKey: 'evidenceID'});
-
-
-  Complaint.belongsTo(Resolution,{foreignKey: 'resolutionID'});
-  Resolution.hasMany(Complaint,{foreignKey: 'resolutionID'});
-
-  
-  Complaint.belongsTo(CrimeScene,{foreignKey: 'crimeSceneID'});
-  CrimeScene.hasMany(Complaint,{foreignKey: 'crimeSceneID'});
-
-  Complaint.belongsTo(CategoryReport,{foreignKey: 'categoryReportID'});
-  CategoryReport.belongsTo(Complaint,{foreignKey: 'categoryReportID'});
-
-
-
-
-
-

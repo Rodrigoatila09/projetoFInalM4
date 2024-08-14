@@ -1,5 +1,7 @@
 import { DataTypes } from "sequelize";
 import { database } from "../database/connection.db.js";
+import { Resolution } from "./Resolution.model.js";
+import { ResponsibleAuthority } from "./ResponsibleAuthority.model.js";
 
 export const Evidence = database.define("Evidence", {
   id: {
@@ -10,10 +12,18 @@ export const Evidence = database.define("Evidence", {
   resolutionId: {
     type: DataTypes.UUID,
     allowNull: true,
+    references: {
+      model: Resolution,
+      key: "id",
+    },
   },
   responsibleAuthorityId: {
     type: DataTypes.UUID,
-    allowNull: true
+    allowNull: true,
+    references: {
+      model: ResponsibleAuthority,
+      key: "id",
+    },
   },
   evidenceContent: {
     type: DataTypes.BLOB,

@@ -32,5 +32,3 @@ export const ResponsibleAuthority = database.define("ResponsibleAuthority", {
     allowNull: true,
   },
 });
-
-
