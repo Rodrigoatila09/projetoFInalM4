@@ -73,3 +73,24 @@ export const Complaint = database.define("Complaint", {
     },
   },
 });
+
+
+Complaint.belongsTo(Whistleblower, { foreignKey: 'whistleBlowerID' });
+Whistleblower.hasMany(Complaint, { foreignKey: 'whistleBlowerID' });
+
+Complaint.belongsTo(ResponsibleAuthority,{foreignKey:'responsibleAuthorityID'});
+ResponsibleAuthority.hasMany(Complaint, { foreignKey: 'responsibleAuthorityID' });
+
+Complaint.belongsTo(Evidence,{foreignKey: 'evidenceID'});
+Evidence.hasMany(Complaint,{foreignKey: 'evidenceID'});
+
+
+Complaint.belongsTo(Resolution,{foreignKey: 'resolutionID'});
+Resolution.hasMany(Complaint,{foreignKey: 'resolutionID'});
+
+
+Complaint.belongsTo(CrimeScene,{foreignKey: 'crimeSceneID'});
+CrimeScene.belongsTo(Complaint,{foreignKey: 'crimeSceneID'});
+
+Complaint.belongsTo(CategoryReport,{foreignKey: 'categoryReportID'});
+CategoryReport.belongsTo(Complaint,{foreignKey: 'categoryReportID'});
