@@ -22,7 +22,7 @@ export const CrimeScene = database.define("CrimeScene", {
     allowNull: false,
   },
   whistleblowerId: {
-    type: DataTypes.STRING(100),
+    type: DataTypes.UUID,
     allowNull: true,
     references: {
       model: Whistleblower,

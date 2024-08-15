@@ -16,10 +16,6 @@ export const Resolution = database.define("Resolution", {
       key: "id",
     },
   },
-  evidenceContent: {
-    type: DataTypes.BLOB,
-    allowNull: false,
-  },
   resolutionDate: {
     type: DataTypes.DATE,
     allowNull: false,

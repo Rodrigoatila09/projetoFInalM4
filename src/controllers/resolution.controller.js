@@ -5,7 +5,6 @@ export const createResolution = async (req, res) => {
     const {
       resolutionId,
       responsibleAuthorityId,
-      evidenceContent,
       resolutionDate,
       resolutionDetails,
       status
@@ -14,7 +13,6 @@ export const createResolution = async (req, res) => {
     const newResolution = await Resolution.create({
       resolutionId,
       responsibleAuthorityId,
-      evidenceContent,
       resolutionDate,
       resolutionDetails,
       status
@@ -41,7 +39,6 @@ export const updateResolution = async (req, res) => {
     const {
       resolutionId,
       responsibleAuthorityId,
-      evidenceContent,
       resolutionDate,
       resolutionDetails,
       status
@@ -57,7 +54,6 @@ export const updateResolution = async (req, res) => {
       {
         resolutionId,
         responsibleAuthorityId,
-        evidenceContent,
         resolutionDate,
         resolutionDetails,
         status

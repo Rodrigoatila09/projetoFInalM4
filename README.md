@@ -2,11 +2,15 @@
 
 A API de denúncias foi desenvolvida com o objetivo de fornecer uma plataforma segura e eficiente para o registro e gerenciamento de denúncias relacionados a irregularidades, crimes e outros incidentes. Em um mundo onde a integridade e a transparência são cada vez mais valorizadas, é crucial oferecer às pessoas uma maneira acessível e confiável de reportar problemas e compartilhar informações importantes.
 
-Com essa Reportify API, buscamos facilitar o processo de denúncia, garantindo que as informações sejam coletadas de forma confidencial e processadas com eficiência. Ela oferece uma estrutura robusta para que os usuários possam registrar denúncias, acompanhar seu status e interagir com as autoridades responsáveis, promovendo a justiça e a responsabilidade.
+Com a Reportify API, buscamos facilitar o processo de denúncia, garantindo que as informações sejam coletadas de forma confidencial e processadas com eficiência. Ela oferece uma estrutura robusta para que os usuários possam registrar denúncias, acompanhar seu status e interagir com as autoridades responsáveis, promovendo a justiça e a responsabilidade.
 
 Além disso, a API foi projetada para integrar-se facilmente com outros sistemas e plataformas, possibilitando a criação de soluções personalizadas que atendam às necessidades específicas de diferentes organizações e comunidades. Através da nossa API, pretendemos contribuir para um ambiente mais seguro e justo, onde as denúncias são tratadas com seriedade e agilidade.
 
-# 🚀 Começando
+# 👩🏾‍💻 Acesso à API
+
+A API está disponível na seguinte URL: https://api-report-16hk.onrender.com
+
+# 🚀 Começando Localmente
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
@@ -36,6 +40,10 @@ npm i express
 Instale a ORM Sequelize
 ```
 npm i sequelize
+```
+Instale as dependências do banco de dados PostgreSQL
+```
+npm i pg pg-hstore
 ```
 Instale o CORS
 ```
@@ -356,6 +364,10 @@ Utilize ferramentas de desenvolvimento e teste de API's como Postman ou Insomina
 * #### Sequelize (v6.37.3)
 * #### PostgreSQL
 * #### Padrão MVC 
+
+# 🌐 Hospedagem
+* #### Banco de dados hospedado no Supabase
+* #### API hospedada no Render 
 
 #
 

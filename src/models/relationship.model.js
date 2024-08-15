@@ -3,8 +3,7 @@ import { Resolution } from "./Resolution.model.js";
 import { Evidence } from "./Evidence.model.js";
 import { CrimeScene } from "./CrimeScene.model.js";
 import { Whistleblower } from "./Whistleblower.model.js";
-import { CategoryReport } from "./CategoryReport.model.js";
-import { Complaint } from "./Complaint.model.js"
+
 
 ResponsibleAuthority.hasMany(Resolution, {
   foreignKey: "responsibleAuthorityId",
@@ -36,4 +35,12 @@ ResponsibleAuthority.hasMany(CrimeScene, {
   as: "crimeScenes",
 });
 
+Whistleblower.hasMany(CrimeScene, {
+  foreignKey: "whistleblowerId",
+  as: "crimeScenes",
+});
 
+CrimeScene.belongsTo(Whistleblower, {
+  foreignKey: "whistleblowerId",
+  as: "whistleblower",
+});
