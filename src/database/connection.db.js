@@ -13,9 +13,10 @@ export const connection = async () => {
     await database.sync({ logging:false })
     return console.log('Connection has been established successfully.')
   }catch (error) {
-    console.error('Unable to connect to the database:', err)
+    console.error('Unable to connect to the database:', error)
   }
 }
+
 
 
 

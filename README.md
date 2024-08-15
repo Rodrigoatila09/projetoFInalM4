@@ -323,7 +323,7 @@ Este é um exemplo JSON para criar uma nova autoridade responsável:
 * Método HTTP: PUT
 * Descrição: Atualiza resolução de denúncia pelo ID
 
-#### Deletar RResolução da Denúncia
+#### Deletar Resolução da Denúncia
 * Endpoint: ```/resolucao/:id```
 * Método HTTP: DELETE
 * Descrição: Deleta resolução de denúncia pelo ID
